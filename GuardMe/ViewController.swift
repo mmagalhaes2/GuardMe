@@ -11,15 +11,15 @@ import UIKit
 import GoogleMapsUtils
 import FirebaseStorage
 
-class ViewController: UIViewController, GMSMapViewDelegate {
+class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate {
     
     private var mapView: GMSMapView!
     private var heatmapLayer: GMUHeatmapTileLayer!
-    private var button: UIButton!
-
+    private var locationManager = CLLocationManager()
+    
     private var gradientColors = [UIColor.green, UIColor.red]
-    private var gradientStartPoints = [0.2, 1.0] as [NSNumber]
-
+    private var gradientStartPoints = [0.05, 0.5] as [NSNumber]
+    
     override func loadView() {
         let options = GMSMapViewOptions()
         options.camera = GMSCameraPosition.camera(
@@ -27,39 +27,40 @@ class ViewController: UIViewController, GMSMapViewDelegate {
             longitude: -46.633176282048225,
             zoom: 12
         )
-          
         mapView = GMSMapView.init(options: options)
-        mapView?.isMyLocationEnabled = true
-        mapView?.settings.myLocationButton = true
+        mapView.settings.myLocationButton = true
         mapView.delegate = self
         
         self.view = mapView
+        
+//        self.mapView?.settings.myLocationButton = true
+//        self.mapView.isMyLocationEnabled = true
+//        self.locationManager.delegate = self
+//        self.locationManager.startUpdatingLocation()
     }
-
+    
     override func viewDidLoad() {
         // Set heatmap options.
         heatmapLayer = GMUHeatmapTileLayer()
-        heatmapLayer.radius = 20
-        heatmapLayer.opacity = 1
-        heatmapLayer.maximumZoomIntensity = 1000
-//        heatmapLayer.minimumZoomIntensity = 10
+        heatmapLayer.radius = 25
+        heatmapLayer.opacity = 0.8
+        heatmapLayer.maximumZoomIntensity = 500
         heatmapLayer.gradient = GMUGradient(colors: gradientColors,
                                             startPoints: gradientStartPoints,
                                             colorMapSize: 256)
-        //        prepareFile()
         addHeatmap()
-
+        
         // Set the heatmap to the mapview.
         heatmapLayer.map = mapView
     }
-
+    
     // Parse JSON data and add it to the heatmap layer.
     func addHeatmap() {
         var list = [GMUWeightedLatLng]()
         do {
             // Get the data: latitude/longitude positions of police stations.
             if let path = Bundle.main.url(
-                forResource: "target",
+                forResource: "target2",
                 withExtension: "json"
             ) {
                 let data = try Data(contentsOf: path)
@@ -92,37 +93,19 @@ class ViewController: UIViewController, GMSMapViewDelegate {
         // Add the latlngs to the heatmap layer.
         heatmapLayer.weightedData = list
     }
-
-    func mapView(
-        _ mapView: GMSMapView,
-        didTapAt coordinate: CLLocationCoordinate2D
-    ) {
-        print("You tapped at \(coordinate.latitude), \(coordinate.longitude)")
-    }
     
-    struct Target: Codable {
-        let name: String
-        let latitude: Double
-        let longitude: Double
-    }
+//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        
+//        let location = locations.last
+//        
+//        let coordinate: CLLocationCoordinate2D! = CLLocationCoordinate2D(latitude: location?.coordinate.latitude ?? 23.568986189122366, longitude: location?.coordinate.longitude ?? 46.633176282048225)
+//        let camera = GMSCameraPosition.camera(withTarget: coordinate, zoom: 17.0)
+//        self.mapView?.animate(to: camera)
+//        
+//        //Finally stop updating location otherwise it will come again and again in this delegate
+//        self.locationManager.stopUpdatingLocation()
+//        
+//    }
     
-    //    func prepareFile() -> StorageReference {
-    //        let storage = Storage.storage()
-    //        
-    //        let gsReference = storage.reference(
-    //            forURL: "gs://guardme-433722.appspot.com/target.json"
-    //        ).getData(maxSize: 100 * 1024 * 1024) { data, error in
-    //            if let error = error {
-    //                // Uh-oh, an error occurred!
-    //                print(error)
-    //            } else {
-    //                // Data for "images/island.jpg" is returned
-    //                print(data!.absoluteString)
-    //            }
-    //        }
-    //        
-    //        return gsReference
-    //    }
-            
 }
 

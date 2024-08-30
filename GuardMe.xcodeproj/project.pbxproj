@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		EBECB4F42C7D51FF00B370E7 /* GoogleMaps in Frameworks */ = {isa = PBXBuildFile; productRef = EBECB4F32C7D51FF00B370E7 /* GoogleMaps */; };
 		EBECB4F82C7D53FE00B370E7 /* GoogleMapsUtils in Frameworks */ = {isa = PBXBuildFile; productRef = EBECB4F72C7D53FE00B370E7 /* GoogleMapsUtils */; };
-		EBF79F672C7E7B5200CEDD44 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = EBF79F662C7E7B5200CEDD44 /* FirebaseStorage */; };
-		EBF79F692C7E7B8300CEDD44 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = EBF79F682C7E7B8300CEDD44 /* FirebaseAuth */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,8 +49,6 @@
 			files = (
 				EBECB4F82C7D53FE00B370E7 /* GoogleMapsUtils in Frameworks */,
 				EBECB4F42C7D51FF00B370E7 /* GoogleMaps in Frameworks */,
-				EBF79F672C7E7B5200CEDD44 /* FirebaseStorage in Frameworks */,
-				EBF79F692C7E7B8300CEDD44 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,8 +101,6 @@
 			packageProductDependencies = (
 				EBECB4F32C7D51FF00B370E7 /* GoogleMaps */,
 				EBECB4F72C7D53FE00B370E7 /* GoogleMapsUtils */,
-				EBF79F662C7E7B5200CEDD44 /* FirebaseStorage */,
-				EBF79F682C7E7B8300CEDD44 /* FirebaseAuth */,
 			);
 			productName = GuardMe;
 			productReference = EBECB4D92C7D517F00B370E7 /* GuardMe.app */;
@@ -139,7 +133,6 @@
 			packageReferences = (
 				EBECB4F22C7D51FF00B370E7 /* XCRemoteSwiftPackageReference "ios-maps-sdk" */,
 				EBECB4F62C7D53FE00B370E7 /* XCRemoteSwiftPackageReference "google-maps-ios-utils" */,
-				EBF79F652C7E7B0200CEDD44 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			preferredProjectObjectVersion = 60;
 			productRefGroup = EBECB4DA2C7D517F00B370E7 /* Products */;
@@ -397,14 +390,6 @@
 				minimumVersion = 6.0.0;
 			};
 		};
-		EBF79F652C7E7B0200CEDD44 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 11.1.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -417,16 +402,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EBECB4F62C7D53FE00B370E7 /* XCRemoteSwiftPackageReference "google-maps-ios-utils" */;
 			productName = GoogleMapsUtils;
-		};
-		EBF79F662C7E7B5200CEDD44 /* FirebaseStorage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EBF79F652C7E7B0200CEDD44 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseStorage;
-		};
-		EBF79F682C7E7B8300CEDD44 /* FirebaseAuth */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EBF79F652C7E7B0200CEDD44 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAuth;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

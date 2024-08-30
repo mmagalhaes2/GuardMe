@@ -9,13 +9,11 @@ import Foundation
 import GoogleMaps
 import UIKit
 import GoogleMapsUtils
-import FirebaseStorage
 
-class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate {
+class ViewController: UIViewController, GMSMapViewDelegate {
     
     private var mapView: GMSMapView!
     private var heatmapLayer: GMUHeatmapTileLayer!
-    private var locationManager = CLLocationManager()
     
     private var gradientColors = [UIColor.green, UIColor.red]
     private var gradientStartPoints = [0.05, 0.5] as [NSNumber]
@@ -28,15 +26,11 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
             zoom: 12
         )
         mapView = GMSMapView.init(options: options)
-        mapView.settings.myLocationButton = true
         mapView.delegate = self
         
         self.view = mapView
         
-//        self.mapView?.settings.myLocationButton = true
-//        self.mapView.isMyLocationEnabled = true
-//        self.locationManager.delegate = self
-//        self.locationManager.startUpdatingLocation()
+        
     }
     
     override func viewDidLoad() {
@@ -60,7 +54,7 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
         do {
             // Get the data: latitude/longitude positions of police stations.
             if let path = Bundle.main.url(
-                forResource: "target2",
+                forResource: "locations",
                 withExtension: "json"
             ) {
                 let data = try Data(contentsOf: path)
@@ -94,18 +88,6 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
         heatmapLayer.weightedData = list
     }
     
-//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        
-//        let location = locations.last
-//        
-//        let coordinate: CLLocationCoordinate2D! = CLLocationCoordinate2D(latitude: location?.coordinate.latitude ?? 23.568986189122366, longitude: location?.coordinate.longitude ?? 46.633176282048225)
-//        let camera = GMSCameraPosition.camera(withTarget: coordinate, zoom: 17.0)
-//        self.mapView?.animate(to: camera)
-//        
-//        //Finally stop updating location otherwise it will come again and again in this delegate
-//        self.locationManager.stopUpdatingLocation()
-//        
-//    }
     
 }
 

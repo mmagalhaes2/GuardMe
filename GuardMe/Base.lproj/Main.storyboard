@@ -1,33 +1,157 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23090" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23090" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FCh-5T-mrQ">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23079"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Mapa-->
+        <scene sceneID="WbH-Nu-ASA">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="GuardMe" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                <viewController title="Mapa" id="LEw-7g-pGW" customClass="MapViewController" customModule="GuardMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fiY-Qh-2pO">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="769"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <viewLayoutGuide key="safeArea" id="ts7-Tb-dDe"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Mapa" id="f1Z-42-FWo">
+                        <imageReference key="image" image="map.fill" catalog="system" symbolScale="default"/>
+                    </tabBarItem>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7j1-mn-i1u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="140" y="-2"/>
+            <point key="canvasLocation" x="799" y="473"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="EnR-Sr-4dF">
+            <objects>
+                <viewController title="Home" id="1Uf-Dp-fvZ" customClass="HomeViewController" customModule="GuardMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7Xh-3c-RF3">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="769"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="apR-Q7-rDF">
+                                <rect key="frame" x="16" y="75" width="176" height="80"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" ambiguous="YES" image="calendar.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="tne-UX-b0R">
+                                        <rect key="frame" x="8" y="8.6666666666666661" width="32" height="30.666666666666671"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="32" id="55B-4w-RXZ"/>
+                                            <constraint firstAttribute="height" constant="32" id="GFj-eL-RaK"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Mes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7c2-id-goC">
+                                        <rect key="frame" x="8" y="48" width="39" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="waI-0h-Mbl">
+                                        <rect key="frame" x="155" y="8" width="11" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="tne-UX-b0R" firstAttribute="leading" secondItem="7c2-id-goC" secondAttribute="leading" id="dP0-MW-WK0"/>
+                                    <constraint firstItem="7c2-id-goC" firstAttribute="top" secondItem="tne-UX-b0R" secondAttribute="bottom" constant="8" id="ioH-dg-UP7"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5cS-hZ-FX5">
+                                <rect key="frame" x="201" y="75" width="176" height="80"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="calendar.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="9db-hN-tAO">
+                                        <rect key="frame" x="8" y="8.6666666666666661" width="32" height="30.666666666666671"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="32" id="i5u-YX-UkP"/>
+                                            <constraint firstAttribute="height" constant="32" id="rKz-8v-dbk"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ME-L8-47O">
+                                        <rect key="frame" x="8" y="48" width="39" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DhP-lP-AEe">
+                                        <rect key="frame" x="157" y="8" width="11" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="9db-hN-tAO" firstAttribute="leading" secondItem="5cS-hZ-FX5" secondAttribute="leading" constant="8" id="Gv3-RU-B1y"/>
+                                    <constraint firstItem="1ME-L8-47O" firstAttribute="top" secondItem="9db-hN-tAO" secondAttribute="bottom" constant="8" id="Z2m-hd-nG6"/>
+                                    <constraint firstItem="1ME-L8-47O" firstAttribute="leading" secondItem="5cS-hZ-FX5" secondAttribute="leading" constant="8" id="czm-7S-vZr"/>
+                                    <constraint firstAttribute="trailing" secondItem="DhP-lP-AEe" secondAttribute="trailing" constant="8" id="t3X-wf-Lz2"/>
+                                    <constraint firstItem="9db-hN-tAO" firstAttribute="top" secondItem="5cS-hZ-FX5" secondAttribute="top" constant="8" id="vnq-hr-ph9"/>
+                                    <constraint firstItem="DhP-lP-AEe" firstAttribute="top" secondItem="5cS-hZ-FX5" secondAttribute="top" constant="8" id="wqV-UQ-4nr"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="X1D-TS-LjE"/>
+                        <color key="backgroundColor" systemColor="quaternarySystemFillColor"/>
+                        <constraints>
+                            <constraint firstItem="apR-Q7-rDF" firstAttribute="top" secondItem="X1D-TS-LjE" secondAttribute="top" constant="16" id="4Fe-0f-VHS"/>
+                            <constraint firstItem="X1D-TS-LjE" firstAttribute="bottom" secondItem="apR-Q7-rDF" secondAttribute="bottom" constant="614" id="BCm-9E-Gzl"/>
+                            <constraint firstItem="apR-Q7-rDF" firstAttribute="leading" secondItem="7Xh-3c-RF3" secondAttribute="leadingMargin" id="FBh-dC-Cvi"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Home" id="GJw-6d-XSa">
+                        <imageReference key="image" image="house.fill" catalog="system" symbolScale="default"/>
+                        <color key="badgeColor" systemColor="systemRedColor"/>
+                    </tabBarItem>
+                    <connections>
+                        <outlet property="test" destination="apR-Q7-rDF" id="0oF-hb-ABG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IEj-x0-2lb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="797.70992366412213" y="-354.22535211267609"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="R98-hX-n5b">
+            <objects>
+                <tabBarController id="FCh-5T-mrQ" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="oGP-Cd-oKK">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" systemColor="systemRedColor"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" systemColor="systemRedColor"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="1Uf-Dp-fvZ" kind="relationship" relationship="viewControllers" id="Ejb-vb-JYS"/>
+                        <segue destination="LEw-7g-pGW" kind="relationship" relationship="viewControllers" id="YSJ-dP-S7W"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LgI-T2-Rk1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-62" y="8"/>
         </scene>
     </scenes>
     <resources>
+        <image name="calendar.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="house.fill" catalog="system" width="128" height="104"/>
+        <image name="map.fill" catalog="system" width="128" height="110"/>
+        <systemColor name="quaternarySystemFillColor">
+            <color red="0.4549019608" green="0.4549019608" blue="0.50196078430000002" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

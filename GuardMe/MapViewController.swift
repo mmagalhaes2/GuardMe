@@ -19,6 +19,16 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
     private var gradientStartPoints = [0.05, 0.5] as [NSNumber]
     
     override func loadView() {
+        let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
+
+        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.style = UIActivityIndicatorView.Style.medium
+        loadingIndicator.startAnimating();
+
+        alert.view.addSubview(loadingIndicator)
+        present(alert, animated: true, completion: nil)
+        
         let options = GMSMapViewOptions()
         options.camera = GMSCameraPosition.camera(
             withLatitude: -23.568986189122366,
@@ -29,8 +39,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
         mapView.delegate = self
         
         self.view = mapView
-        
-        
     }
     
     override func viewDidLoad() {
@@ -46,6 +54,8 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
         
         // Set the heatmap to the mapview.
         heatmapLayer.map = mapView
+        
+        dismiss(animated: false, completion: nil)
     }
     
     // Parse JSON data and add it to the heatmap layer.
